@@ -1,4 +1,4 @@
-package ipastushenko.core;
+package com.ipastushenko.core;
 
 /**
  * test
