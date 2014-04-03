@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>local</groupId>
+    <groupId>ipastushenko.core</groupId>
     <artifactId>web-app</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -12,6 +12,7 @@
 
     <properties>
         <jdk.version>1.7</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
@@ -32,7 +33,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>local.Test</mainClass>
+                            <mainClass>ipastushenko.core.Test</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
