@@ -7,7 +7,7 @@
     <groupId>com.ipastushenko.core</groupId>
     <artifactId>web-app</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>web-app</name>
 
     <properties>
@@ -28,17 +28,17 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.ipastushenko.core.Test</mainClass>
-                        </manifest>
-                    </archive>
+                    <server>tomcat7_manager</server>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    
 </project>
