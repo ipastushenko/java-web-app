@@ -5,28 +5,25 @@
                              http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
     <servlet>
-        <servlet-name>TestServletName</servlet-name>
-        <servlet-class>com.ipastushenko.core.servlets.TestServlet</servlet-class>
+        <servlet-name>WebApp</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>TestServletName</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>WebApp</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
-    <filter>
-        <filter-name>TestFilterName</filter-name>
-        <filter-class>com.ipastushenko.core.filters.TestFilter</filter-class>
-        <init-param>
-            <param-name>name</param-name>
-            <param-value>Ivan</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>TestFilterName</filter-name>
-        <servlet-name>TestServletName</servlet-name>
-    </filter-mapping>
 
     <session-config>
         <session-timeout>30</session-timeout>
