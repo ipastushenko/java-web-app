@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +11,9 @@
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
-        Hello
+        <form name="logoutForm" action="<c:url value='j_spring_security_logout' />" method="POST">
+            <input type="submit" name="submit" value="Logout" />
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </form>
     </body>
 </html>

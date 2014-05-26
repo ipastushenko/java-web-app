@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +11,11 @@
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
-        Hello
+        <form name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
+            <input type="text" name="username" />
+            <input type="password" name="password" />
+            <input type="submit" name="submit" value="Submit" />
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </form>
     </body>
 </html>

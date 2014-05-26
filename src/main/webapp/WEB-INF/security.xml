@@ -7,8 +7,18 @@
           http://www.springframework.org/schema/security
           http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http auto-config="true">
+    <http pattern="/resources/**" security="none" />
+    <http>
+        <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/**" access="ROLE_USER" />
+        <form-login
+                login-page="/login"
+                default-target-url="/"
+                authentication-failure-url="/login?error"
+                username-parameter="username"
+                password-parameter="password" />
+        <logout logout-success-url="/login?logout" />
+        <csrf />
     </http>
 
     <authentication-manager>
