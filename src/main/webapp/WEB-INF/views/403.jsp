@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +11,7 @@
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
-        Hello
+        <p>Access Denied</p>
+        <a href="<c:url value='/' />">Home</a>
     </body>
 </html>

@@ -6,8 +6,13 @@
           http://www.springframework.org/schema/beans/spring-beans.xsd
           http://www.springframework.org/schema/security
           http://www.springframework.org/schema/security/spring-security.xsd">
+    <!-- accessDeniedHandler -->
+    <beans:bean id="accessDeniedHandlerImpl" class="com.ipastushenko.core.config.handler.AccessDeniedHandlerImpl">
+        <beans:property name="errorPage" value="403" />
+    </beans:bean>
 
     <http pattern="/resources/**" security="none" />
+    <http pattern="/403" security="none" />
     <http>
         <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/**" access="ROLE_USER" />
@@ -19,6 +24,7 @@
                 password-parameter="password" />
         <logout logout-success-url="/login?logout" />
         <csrf />
+        <access-denied-handler ref="accessDeniedHandlerImpl" />
     </http>
 
     <authentication-manager>
