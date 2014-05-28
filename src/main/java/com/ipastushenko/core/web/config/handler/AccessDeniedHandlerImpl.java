@@ -1,4 +1,4 @@
-package com.ipastushenko.core.config.handler;
+package com.ipastushenko.core.web.config.handler;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

@@ -99,6 +99,19 @@
             <artifactId>postgresql</artifactId>
             <version>9.3-1101-jdbc41</version>
         </dependency>
+
+        <!-- MyBatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.2.7</version>
+        </dependency>
     </dependencies>
 
     <build>
