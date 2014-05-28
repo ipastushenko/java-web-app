@@ -1,7 +1,8 @@
-package com.ipastushenko.core.web.service;
+package com.ipastushenko.core.service;
 
-import com.ipastushenko.core.web.model.User;
-import com.ipastushenko.core.web.repository.UserRepository;
+import com.ipastushenko.core.model.User;
+import com.ipastushenko.core.model.UserDetailsImpl;
+import com.ipastushenko.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,13 +21,9 @@ public class UserService implements UserDetailsService {
         return userRepository.find(id);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+        UserDetailsImpl user = userRepository.findByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("User " + username + " not found");

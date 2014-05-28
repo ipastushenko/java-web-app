@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipastushenko.core.repository.mapper.UserMapper">
+    <resultMap id="RoleMap" type="com.ipastushenko.core.model.Role">
+        <result property="name" column="r_name" />
+    </resultMap>
+    
+    <resultMap id="UserDetailsMap" type="com.ipastushenko.core.model.UserDetailsImpl">
+        <result property="username" column="u_username" />
+        <result property="password" column="u_password" />
+        <collection property="authorities" column="r_id" ofType="com.ipastushenko.core.model.Role" javaType="java.util.ArrayList" resultMap="RoleMap" />
+    </resultMap>
+</mapper>

@@ -21,14 +21,16 @@
     <!-- Sql Session factory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath*:mappers/*.xml" />
     </bean>
 
     <!-- MyBatis scanner -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ipastushenko.core.web.repository.mapper" />
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" depends-on="sqlSessionFactory">
+        <property name="basePackage" value="com.ipastushenko.core.repository.mapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
     <!-- User Service -->
-    <bean id="userRepository" class="com.ipastushenko.core.web.repository.UserRepository" />
-    <bean id="userService" class="com.ipastushenko.core.web.service.UserService" />
+    <bean id="userRepository" class="com.ipastushenko.core.repository.UserRepository" />
+    <bean id="userService" class="com.ipastushenko.core.service.UserService" />
 </beans>

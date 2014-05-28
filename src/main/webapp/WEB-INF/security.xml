@@ -10,6 +10,8 @@
     <beans:bean id="accessDeniedHandlerImpl" class="com.ipastushenko.core.web.config.handler.AccessDeniedHandlerImpl">
         <beans:property name="errorPage" value="403" />
     </beans:bean>
+    <!-- authentication success handler -->
+    <beans:bean id="authenticationSuccessHandler" class="com.ipastushenko.core.web.config.handler.AuthSuccessHandler" />
 
     <http pattern="/resources/**" security="none" />
     <http pattern="/403" security="none" />
@@ -17,8 +19,10 @@
         <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/**" access="ROLE_USER" />
         <form-login
+                authentication-success-handler-ref="authenticationSuccessHandler"
                 login-page="/login"
                 default-target-url="/"
+                always-use-default-target="true"
                 authentication-failure-url="/login?error"
                 username-parameter="username"
                 password-parameter="password" />
