@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Data Source -->
+    <bean id="dataSource" class="org.postgresql.ds.PGPoolingDataSource">
+        <property name="dataSourceName" value="Data Source" />
+        <property name="serverName" value="localhost" />
+        <property name="databaseName" value="java_web_app_db" />
+        <property name="user" value="java_web_app" />
+        <property name="password" value="password" />
+        <property name="maxConnections" value="10" />
+    </bean>
+</beans>
