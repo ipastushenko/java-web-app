@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * auth success handler
  */
-public class AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+public class AuthenticationSuccessHandlerImpl extends SimpleUrlAuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(
             HttpServletRequest request,

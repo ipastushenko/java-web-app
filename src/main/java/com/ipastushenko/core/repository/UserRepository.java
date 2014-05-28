@@ -1,7 +1,6 @@
 package com.ipastushenko.core.repository;
 
 import com.ipastushenko.core.model.User;
-import com.ipastushenko.core.model.UserDetailsImpl;
 import com.ipastushenko.core.repository.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,9 +15,5 @@ public class UserRepository {
 
     public User find(Long id) {
         return userMapper.find(id);
-    }
-
-    public UserDetailsImpl findByUsername(String username) {
-        return userMapper.findByUsername(username);
     }
 }

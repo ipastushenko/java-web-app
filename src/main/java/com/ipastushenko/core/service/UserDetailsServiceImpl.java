@@ -1,9 +1,7 @@
 package com.ipastushenko.core.service;
 
-import com.ipastushenko.core.model.User;
 import com.ipastushenko.core.model.UserDetailsImpl;
 import com.ipastushenko.core.repository.UserDetailsRepository;
-import com.ipastushenko.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,14 +9,21 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
- * test service
+ * user details service
  */
 @Service
-public class UserService {
+public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    private UserRepository userRepository;
+    private UserDetailsRepository userDetailsRepository;
 
-    public User find(Long id) {
-        return userRepository.find(id);
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserDetailsImpl userDetails = userDetailsRepository.findByUsername(username);
+
+        if (userDetails == null) {
+            throw new UsernameNotFoundException("User " + username + " not found");
+        }
+
+        return userDetails;
     }
 }

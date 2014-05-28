@@ -11,7 +11,7 @@
         <beans:property name="errorPage" value="403" />
     </beans:bean>
     <!-- authentication success handler -->
-    <beans:bean id="authenticationSuccessHandler" class="com.ipastushenko.core.web.config.handler.AuthSuccessHandler" />
+    <beans:bean id="authenticationSuccessHandler" class="com.ipastushenko.core.web.config.handler.AuthenticationSuccessHandlerImpl" />
 
     <http pattern="/resources/**" security="none" />
     <http pattern="/403" security="none" />
@@ -32,6 +32,6 @@
     </http>
 
     <authentication-manager>
-        <authentication-provider user-service-ref="userService" />
+        <authentication-provider user-service-ref="userDetailsServiceImpl" />
     </authentication-manager>
 </beans:beans>

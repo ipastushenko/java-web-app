@@ -31,6 +31,6 @@
     </bean>
 
     <!-- User Service -->
-    <bean id="userRepository" class="com.ipastushenko.core.repository.UserRepository" />
-    <bean id="userService" class="com.ipastushenko.core.service.UserService" />
+    <bean id="userDetailsRepository" class="com.ipastushenko.core.repository.UserDetailsRepository" />
+    <bean id="userDetailsServiceImpl" class="com.ipastushenko.core.service.UserDetailsServiceImpl" />
 </beans>
