@@ -91,6 +91,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- PostgreSQL -->
@@ -106,7 +107,6 @@
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.2</version>
         </dependency>
-
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
