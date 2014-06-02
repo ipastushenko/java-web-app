@@ -6,7 +6,7 @@ CREATE TABLE users
     password VARCHAR(255) NOT NULL
 );
 
-INSERT INTO users (username, password) VALUES ('ipastushenko', 'password');
+INSERT INTO users (username, password) VALUES ('user', 'password');
 
 -- Roles
 CREATE TABLE roles
@@ -25,4 +25,4 @@ CREATE TABLE users_roles
     role_id INT NOT NULL REFERENCES roles(id)
 );
 
-INSERT INTO users_roles (user_id, role_id) VALUES ((SELECT id FROM users WHERE username='ipastushenko'), (SELECT id FROM roles WHERE name='ROLE_USER'));
+INSERT INTO users_roles (user_id, role_id) VALUES ((SELECT id FROM users WHERE username='user'), (SELECT id FROM roles WHERE name='ROLE_USER'));
