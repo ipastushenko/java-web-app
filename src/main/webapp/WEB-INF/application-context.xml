@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="file:${java_web_app.config.path}/jdbc.properties" />
+    </bean>
+
     <!-- Data Source -->
     <bean id="dataSource" class="org.postgresql.ds.PGPoolingDataSource">
-        <property name="dataSourceName" value="Data Source" />
-        <property name="serverName" value="localhost" />
-        <property name="databaseName" value="java_web_app_db" />
-        <property name="user" value="java_web_app" />
-        <property name="password" value="password" />
-        <property name="maxConnections" value="10" />
+        <property name="dataSourceName" value="${jdbc.dataSourceName}" />
+        <property name="serverName" value="${jdbc.serverName}" />
+        <property name="databaseName" value="${jdbc.databaseName}" />
+        <property name="user" value="${jdbc.user}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxConnections" value="${jdbc.maxConnections}" />
     </bean>
 
     <!-- Transaction Manager -->
@@ -26,9 +31,9 @@
     </bean>
 
     <!-- MyBatis scanner -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" depends-on="sqlSessionFactory">
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.ipastushenko.core.repository.mapper" />
-        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
     <!-- User Service -->
