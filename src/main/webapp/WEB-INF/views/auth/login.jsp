@@ -2,6 +2,7 @@
 <%@ include file="../share/header.jsp" %>
 <div class="container">
     <form class="col-md-4 col-md-offset-4" role="form" name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
+        <p class="bg-danger">${authErrorMessage}</p>
         <div class="form-group">
             <label for="username">Username</label>
             <input id="username" class="form-control" type="text" name="username" placeholder="Enter username" />
