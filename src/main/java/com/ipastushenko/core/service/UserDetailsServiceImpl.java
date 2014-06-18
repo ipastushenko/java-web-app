@@ -26,4 +26,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return userDetails;
     }
+
+    public UserDetailsImpl update(UserDetailsImpl userDetails) {
+        if (userDetails == null) {
+            return null;
+        }
+        if (userDetails.getId() == null) {
+            return null;
+        }
+        userDetailsRepository.update(userDetails);
+
+        return userDetails;
+    }
 }

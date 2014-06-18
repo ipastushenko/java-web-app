@@ -12,4 +12,6 @@ public interface UserDetailsMapper {
      * @return user or null
      */
     UserDetailsImpl findByUsername(String username);
+
+    void update(UserDetailsImpl userDetails);
 }

@@ -3,6 +3,7 @@ package com.ipastushenko.core.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,11 +13,25 @@ import java.util.List;
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = -7238711359613870647L;
 
+    private Long id;
+
     private String username;
 
     private String password;
 
     private List<Role> authorities;
+
+    private String lastIp;
+
+    private Timestamp lastLogin;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String getUsername() {
@@ -63,5 +78,21 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getLastIp() {
+        return lastIp;
+    }
+
+    public void setLastIp(String lastIp) {
+        this.lastIp = lastIp;
+    }
+
+    public Timestamp getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(Timestamp lastLogin) {
+        this.lastLogin = lastLogin;
     }
 }

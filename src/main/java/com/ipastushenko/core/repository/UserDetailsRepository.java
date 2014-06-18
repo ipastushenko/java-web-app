@@ -16,4 +16,8 @@ public class UserDetailsRepository {
     public UserDetailsImpl findByUsername(String username) {
         return userDetailsMapper.findByUsername(username);
     }
+
+    public void update(UserDetailsImpl userDetails) {
+        userDetailsMapper.update(userDetails);
+    }
 }
