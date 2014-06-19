@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <!-- Load jdbc properties from config file -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations" value="file:${java_web_app.config.path}/jdbc.properties" />
     </bean>
@@ -19,24 +20,23 @@
     </bean>
 
     <!-- Transaction Manager -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
     <!-- Sql Session factory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:mybatis-config.xml" />
-        <property name="mapperLocations" value="classpath:mappers/*.xml" />
+        <property name="configLocation" value="classpath:com/ipastushenko/core/dao/mybatis/mybatis-config.xml" />
+        <property name="mapperLocations" value="classpath:com/ipastushenko/core/dao/mybatis/mapper/*.xml" />
     </bean>
 
-    <!-- MyBatis scanner -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ipastushenko.core.repository.mapper" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-    </bean>
+    <!-- DAO -->
+    <import resource="dao.xml" />
 
-    <!-- User Service -->
-    <bean id="userDetailsRepository" class="com.ipastushenko.core.repository.UserDetailsRepository" />
-    <bean id="userDetailsServiceImpl" class="com.ipastushenko.core.service.UserDetailsServiceImpl" />
+    <!-- Services -->
+    <import resource="services.xml" />
+
+    <!-- Security -->
+    <import resource="security.xml" />
 </beans>
