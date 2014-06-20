@@ -34,6 +34,8 @@
     </http>
 
     <authentication-manager>
-        <authentication-provider user-service-ref="userDetailsServiceImpl" />
+        <authentication-provider user-service-ref="userDetailsServiceImpl">
+            <password-encoder hash="bcrypt" />
+        </authentication-provider>
     </authentication-manager>
 </beans:beans>
