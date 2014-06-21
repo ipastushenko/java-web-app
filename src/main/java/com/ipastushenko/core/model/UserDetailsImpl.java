@@ -29,6 +29,8 @@ public class UserDetailsImpl implements UserDetails {
 
     private Timestamp updatedAt;
 
+    private Boolean isConfirmed;
+
     public Long getId() {
         return id;
     }
@@ -114,5 +116,13 @@ public class UserDetailsImpl implements UserDetails {
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Boolean getIsConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setIsConfirmed(Boolean isConfirmed) {
+        this.isConfirmed = isConfirmed;
     }
 }

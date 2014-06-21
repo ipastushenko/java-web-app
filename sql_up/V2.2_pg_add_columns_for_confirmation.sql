@@ -1,0 +1,2 @@
+ALTER TABLE users ADD COLUMN is_confirmed boolean NOT NULL DEFAULT FALSE;
+ALTER TABLE users ADD COLUMN confirm_code VARCHAR(255);

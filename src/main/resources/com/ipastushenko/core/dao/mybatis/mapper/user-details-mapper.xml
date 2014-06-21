@@ -11,6 +11,9 @@
         <result property="id" column="u_id" />
         <result property="lastIp" column="u_last_ip" />
         <result property="lastLogin" column="u_last_login" />
+        <result property="isConfirmed" column="u_is_confirmed" />
+        <result property="updatedAt" column="u_updated_at" />
+        <result property="createdAt" column="u_created_at" />
         <result property="username" column="u_username" />
         <result property="password" column="u_password" />
         <collection property="authorities" column="r_id" ofType="Role" javaType="ArrayList" resultMap="RoleMap" />
@@ -23,6 +26,9 @@
         u.id as u_id,
         u.last_ip as u_last_ip,
         u.last_login as u_last_login,
+        u.is_confirmed as u_is_confirmed,
+        u.updated_at as u_updated_at,
+        u.created_at as u_created_at,
         r.name as r_name,
         r.id as r_id
             FROM users u
@@ -32,6 +38,6 @@
     </select>
 
     <update id="update" parameterType="UserDetailsImpl">
-        UPDATE users SET last_ip=#{lastIp}, last_login=#{lastLogin} WHERE id=#{id}
+        UPDATE users SET last_ip=#{lastIp}, last_login=#{lastLogin}, updated_at=#{updatedAt} WHERE id=#{id}
     </update>
 </mapper>

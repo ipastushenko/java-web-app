@@ -3,8 +3,10 @@ package com.ipastushenko.core.service;
 import com.ipastushenko.core.dao.UserDetailsDAO;
 import com.ipastushenko.core.dao.exception.DAOException;
 import com.ipastushenko.core.model.UserDetailsImpl;
+import com.ipastushenko.core.service.exception.NonConfirmedException;
 import com.ipastushenko.core.service.exception.ServiceException;
 import org.apache.log4j.Logger;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -36,6 +38,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             userDetails = userDetailsDAO.findByUsername(username);
             if (userDetails == null) {
                 throw new UsernameNotFoundException("User " + username + " not found");
+            }
+            if (!userDetails.getIsConfirmed()) {
+                throw new NonConfirmedException("User " + username + " is not confirmed");
             }
         } catch (DAOException e) {
             log.error("Service exception: ", e);
