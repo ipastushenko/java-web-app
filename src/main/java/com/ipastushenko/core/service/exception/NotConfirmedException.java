@@ -5,14 +5,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 /**
  * non confirmed exception
  */
-public class NonConfirmedException extends UsernameNotFoundException {
+public class NotConfirmedException extends UsernameNotFoundException {
     private static final long serialVersionUID = -3841385373761119562L;
 
-    public NonConfirmedException(String msg) {
+    public NotConfirmedException(String msg) {
         super(msg);
     }
 
-    public NonConfirmedException(String msg, Throwable t) {
+    public NotConfirmedException(String msg, Throwable t) {
         super(msg, t);
     }
 }

@@ -18,7 +18,7 @@
     <beans:bean id="authenticationFailureHandler" class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
         <beans:property name="exceptionMappings">
             <beans:props>
-                <beans:prop key="com.ipastushenko.core.service.exception.NonConfirmedException">/send-confirm-info</beans:prop>
+                <beans:prop key="com.ipastushenko.core.service.exception.NotConfirmedException">/send-confirm-info</beans:prop>
             </beans:props>
         </beans:property>
         <beans:property name="defaultFailureUrl" value="/login?error" />
