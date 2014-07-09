@@ -1,4 +1,4 @@
-package com.ipastushenko.core.web.config.handler.exception;
+package com.ipastushenko.core.web.config.security.exception;
 
 import org.springframework.security.core.AuthenticationException;
 

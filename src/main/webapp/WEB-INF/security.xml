@@ -7,18 +7,18 @@
           http://www.springframework.org/schema/security
           http://www.springframework.org/schema/security/spring-security.xsd">
     <!-- accessDeniedHandler -->
-    <beans:bean id="accessDeniedHandlerImpl" class="com.ipastushenko.core.web.config.handler.AccessDeniedHandlerImpl">
+    <beans:bean id="accessDeniedHandlerImpl" class="com.ipastushenko.core.web.config.security.AccessDeniedHandlerImpl">
         <beans:property name="errorPage" value="403" />
     </beans:bean>
-    <!-- authentication success handler -->
-    <beans:bean id="authenticationSuccessHandler" class="com.ipastushenko.core.web.config.handler.AuthenticationSuccessHandlerImpl">
+    <!-- authentication success security -->
+    <beans:bean id="authenticationSuccessHandler" class="com.ipastushenko.core.web.config.security.AuthenticationSuccessHandlerImpl">
         <beans:property name="userDetailsService" ref="userDetailsServiceImpl" />
     </beans:bean>
 
     <beans:bean id="authenticationFailureHandler" class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
         <beans:property name="exceptionMappings">
             <beans:props>
-                <beans:prop key="com.ipastushenko.core.web.config.handler.exception.NotConfirmedException">/send-confirm-info</beans:prop>
+                <beans:prop key="com.ipastushenko.core.web.config.security.exception.NotConfirmedException">/send-confirm-info</beans:prop>
             </beans:props>
         </beans:property>
         <beans:property name="defaultFailureUrl" value="/login?error" />
@@ -26,7 +26,7 @@
 
     <beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
-    <beans:bean id="authenticationProvider" class="com.ipastushenko.core.web.config.handler.CustomDaoAuthenticationProvider">
+    <beans:bean id="authenticationProvider" class="com.ipastushenko.core.web.config.security.CustomDaoAuthenticationProvider">
         <beans:property name="userDetailsService" ref="userDetailsServiceImpl" />
         <beans:property name="passwordEncoder" ref="bcryptEncoder" />
     </beans:bean>

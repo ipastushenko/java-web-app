@@ -1,4 +1,4 @@
-package com.ipastushenko.core.web.config.handler;
+package com.ipastushenko.core.web.config.security;
 
 import com.ipastushenko.core.model.UserDetailsImpl;
 import com.ipastushenko.core.service.UserDetailsServiceImpl;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 
 /**
- * auth success handler
+ * auth success security
  */
 public class AuthenticationSuccessHandlerImpl extends SimpleUrlAuthenticationSuccessHandler {
     private static final Logger log = Logger.getLogger(AuthenticationSuccessHandlerImpl.class.getName());

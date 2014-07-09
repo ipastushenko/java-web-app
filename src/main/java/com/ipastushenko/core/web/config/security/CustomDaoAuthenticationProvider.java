@@ -1,7 +1,7 @@
-package com.ipastushenko.core.web.config.handler;
+package com.ipastushenko.core.web.config.security;
 
 import com.ipastushenko.core.model.UserDetailsImpl;
-import com.ipastushenko.core.web.config.handler.exception.NotConfirmedException;
+import com.ipastushenko.core.web.config.security.exception.NotConfirmedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

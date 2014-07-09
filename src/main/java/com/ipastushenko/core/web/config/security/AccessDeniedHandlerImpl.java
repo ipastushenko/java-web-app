@@ -1,4 +1,4 @@
-package com.ipastushenko.core.web.config.handler;
+package com.ipastushenko.core.web.config.security;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * access denied handler
+ * access denied security
  */
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
 
