@@ -1,4 +1,4 @@
-package com.ipastushenko.core.service.exception;
+package com.ipastushenko.core.web.config.handler.exception;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -10,9 +10,5 @@ public class NotConfirmedException extends UsernameNotFoundException {
 
     public NotConfirmedException(String msg) {
         super(msg);
-    }
-
-    public NotConfirmedException(String msg, Throwable t) {
-        super(msg, t);
     }
 }
