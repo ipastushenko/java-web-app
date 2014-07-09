@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * access denied security
+ * access denied handler
  */
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
 

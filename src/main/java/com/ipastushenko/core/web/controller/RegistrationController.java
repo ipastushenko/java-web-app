@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class RegistrationController {
     @RequestMapping(value = "/send-confirm-info", method = RequestMethod.GET)
-    public ModelAndView login(
+    public ModelAndView sendConfirmInfo(
             HttpServletRequest request,
             HttpServletResponse response
     ) {

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 
 /**
- * auth success security
+ * auth success handler
  */
 public class AuthenticationSuccessHandlerImpl extends SimpleUrlAuthenticationSuccessHandler {
     private static final Logger log = Logger.getLogger(AuthenticationSuccessHandlerImpl.class.getName());
