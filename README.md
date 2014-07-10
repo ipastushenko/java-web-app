@@ -5,6 +5,7 @@
 * Spring Framework
 * Spring MVC
 * Spring Security
+* JSP
 * MyBatis
 * PostgreSQL
 
@@ -20,17 +21,19 @@
 
 ### Config files
 
+1. Create folder for config files
+
 ### PostgreSQL settings
 
-Create user and database for our project.
- 
-Example:
-
-  user: `java_web_app`
-  
-  database: `java_web_app_db`
+Create user and database for our project.  
+Example:  
+- user: `java_web_app`  
+- database: `java_web_app_db`
 
 ### Tomcat settings
+
+1. Open or create file setenv.sh in $CATALINA_OPTS/bin
+2. Add `JAVA_OPTS+='-Djava_web_app.config.path=<config_path>'` in setenv.sh
 
 ### Maven settings
 
