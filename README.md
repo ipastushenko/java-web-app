@@ -32,14 +32,13 @@ Install next development tools:
 
 ### PostgreSQL settings
 
-Create user and database for our project.  
-Example:  
-- user: `java_web_app`  
-- database: `java_web_app_db`
+1. Create user and database for our project
+2. Change `<config_path>/jdbs.properties` for user and database
+3. Make migrations form `./sql_up/*` folder
 
 ### Maven settings
 
-1. Open or create ~/.m2/settings.xml
+1. Open or create `~/.m2/settings.xml`
 2. Add next xml:
 ```xml
 <servers>
