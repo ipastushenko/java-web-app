@@ -22,7 +22,7 @@ Install next development tools:
 
 ### Config files
 
-1. Create folder with name <config_path> for config files of project
+1. Create folder with name `<config_path>` for config files of project
 2. Copy files from `./config_temaplates/*` folder in <config_path>
 
 ### Tomcat settings
