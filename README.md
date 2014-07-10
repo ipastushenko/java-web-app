@@ -13,15 +13,22 @@
 
 ### Instruments
 
-1. Clone this repository
-2. Install PostgreSQL v9.3
-3. Install Java v1.7
-4. Install Tomcat v7.0.53 or later
-4. Install Maven
+Install next development tools:
+
+1. PostgreSQL v9.3
+2. Java v1.7
+3. Tomcat v7.0.53 or later
+4. Maven
 
 ### Config files
 
-1. Create folder for config files
+1. Create folder with name <config_path> for config files of project
+2. Copy files from `./config_temaplates/*` folder in <config_path>
+
+### Tomcat settings
+
+1. Open or create file setenv.sh in $CATALINA_OPTS/bin
+2. Add `JAVA_OPTS+='-Djava_web_app.config.path=<config_path>'` in setenv.sh
 
 ### PostgreSQL settings
 
@@ -30,12 +37,19 @@ Example:
 - user: `java_web_app`  
 - database: `java_web_app_db`
 
-### Tomcat settings
-
-1. Open or create file setenv.sh in $CATALINA_OPTS/bin
-2. Add `JAVA_OPTS+='-Djava_web_app.config.path=<config_path>'` in setenv.sh
-
 ### Maven settings
+
+1. Open or create ~/.m2/settings.xml
+2. Add next xml:
+```xml
+<servers>
+  <server>
+    <id>tomcat7_manager</id>
+    <username>tomcat_admin_username</username>
+    <password>tomcat_admin_password</password>
+  </server>
+</servers>
+```
 
 ### Deploy development version
 
