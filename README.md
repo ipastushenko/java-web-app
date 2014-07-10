@@ -27,7 +27,7 @@ Install next development tools:
 
 ### Tomcat settings
 
-1. Open or create file setenv.sh in $CATALINA_OPTS/bin
+1. Open or create file `$CATALINA_HOME/bin/setenv.sh`
 2. Add `JAVA_OPTS+='-Djava_web_app.config.path=<config_path>'` in setenv.sh
 
 ### PostgreSQL settings
