@@ -1,1 +1,0 @@
-UPDATE users SET password='password' WHERE username='user';

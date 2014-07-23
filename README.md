@@ -8,6 +8,7 @@
 * JSP
 * MyBatis
 * PostgreSQL
+* Flyway
 
 ## How run project?
 
@@ -28,13 +29,12 @@ Install next development tools:
 ### Tomcat settings
 
 1. Open or create file `$CATALINA_HOME/bin/setenv.sh`
-2. Add `JAVA_OPTS+='-Djava_web_app.config.path=<config_path>'` in setenv.sh
+2. Add `JAVA_OPTS="$JAVA_OPTS -Djava_web_app.config.path=<config_path>"` in setenv.sh
 
 ### PostgreSQL settings
 
 1. Create user and database for our project
 2. Change `<config_path>/jdbs.properties` for user and database
-3. Make migrations form `./sql_up/*` folder
 
 ### Maven settings
 
@@ -42,6 +42,13 @@ Install next development tools:
 2. Add next xml:
 ```xml
 <servers>
+  <!-- flyway settings -->
+  <server>
+    <id>pg-java-web-app</id>
+    <username>database_username</username>
+    <password>database_password</password>
+  </server>
+  <!-- tomcat settings -->
   <server>
     <id>tomcat7_manager</id>
     <username>tomcat_admin_username</username>
@@ -52,5 +59,6 @@ Install next development tools:
 
 ### Deploy development version
 
-1. Run `mvn package`
-2. Run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy`
+1. Run `mvn -Dflyway.url=<database-url> flyway:migrate`
+2. Run `mvn package`
+3. Run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy`
