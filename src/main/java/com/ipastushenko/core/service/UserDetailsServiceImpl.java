@@ -45,6 +45,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return userDetails;
     }
 
+    /**
+     * update details of user
+     * @param userDetails details of user
+     * @throws ServiceException service exception
+     */
     public void update(UserDetailsImpl userDetails) throws ServiceException {
         if (userDetails == null) {
             log.error("Service exception: userDetails is null");
