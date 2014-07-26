@@ -25,6 +25,11 @@ public class SessionUtils {
         return false;
     }
 
+    /**
+     * get username after not confirmed exception and delete it from session
+     * @param session session
+     * @return username or null
+     */
     public static String getNotConfirmedUsername(HttpSession session) {
         Object obj = session.getAttribute(SessionAttributeCode.NOT_CONFIRMED_USERNAME.name());
         if (obj != null) {
@@ -36,6 +41,11 @@ public class SessionUtils {
         return null;
     }
 
+    /**
+     * get user details of current session
+     * @param session session
+     * @return user details or null
+     */
     public static UserDetailsImpl getCurrentUserDetails(HttpSession session) {
         Object obj = session.getAttribute(SessionAttributeCode.CURRENT_USER.name());
         if (obj != null) {
