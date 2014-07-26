@@ -2,7 +2,14 @@
 <%@ include file="../share/header.jsp" %>
 <div class="container">
     <form class="col-md-4 col-md-offset-4" role="form" name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
-        <p class="bg-danger">${authErrorMessage}</p>
+        <c:if test="${authErrorMessage != null}">
+            <p id="auth-error-message" class="bg-danger">
+                ${authErrorMessage}
+                <button id="close-auth-error-message" type="button" class="close pull-right">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+            </p>
+        </c:if>
         <div class="form-group">
             <label for="username">Email</label>
             <input id="username" class="form-control" type="text" name="username" placeholder="Enter your email" />
@@ -17,4 +24,6 @@
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     </form>
 </div>
+<script src="resources/js/lib/jquery-2.1.1.min.js"></script>
+<script src="resources/js/login.js"></script>
 <%@ include file="../share/footer.jsp" %>

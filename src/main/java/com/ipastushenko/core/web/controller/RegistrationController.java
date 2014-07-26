@@ -1,5 +1,6 @@
 package com.ipastushenko.core.web.controller;
 
+import com.ipastushenko.core.utils.SessionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +19,9 @@ public class RegistrationController {
             HttpServletRequest request,
             HttpServletResponse response
     ) {
-        return new ModelAndView("auth/send-confirm-info");
+        ModelAndView model = new ModelAndView("auth/send-confirm-info");
+        String username = SessionUtils.findNotConfirmedUsername(request.getSession());
+        model.addObject("username", username);
+        return model;
     }
 }

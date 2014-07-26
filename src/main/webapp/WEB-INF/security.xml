@@ -15,13 +15,13 @@
         <beans:property name="userDetailsService" ref="userDetailsServiceImpl" />
     </beans:bean>
 
-    <beans:bean id="authenticationFailureHandler" class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+    <beans:bean id="authenticationFailureHandler" class="com.ipastushenko.core.web.config.security.AuthenticationFailureHandlerImpl">
         <beans:property name="exceptionMappings">
             <beans:props>
                 <beans:prop key="com.ipastushenko.core.web.config.security.exception.NotConfirmedException">/send-confirm-info</beans:prop>
             </beans:props>
         </beans:property>
-        <beans:property name="defaultFailureUrl" value="/login?error" />
+        <beans:property name="defaultFailureUrl" value="/login" />
     </beans:bean>
 
     <beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />

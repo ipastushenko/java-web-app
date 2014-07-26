@@ -25,7 +25,7 @@ public class CustomDaoAuthenticationProvider extends DaoAuthenticationProvider {
             }
 
             if (!userDetails.getIsConfirmed()) {
-                throw new NotConfirmedException("Email is not confirmed");
+                throw new NotConfirmedException("Email is not confirmed", userDetails.getUsername());
             }
 
             if (!user.isCredentialsNonExpired()) {
