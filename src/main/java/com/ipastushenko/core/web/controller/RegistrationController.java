@@ -15,10 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class RegistrationController {
     @RequestMapping(value = "/send-confirm-info", method = RequestMethod.GET)
-    public ModelAndView sendConfirmInfo(
-            HttpServletRequest request,
-            HttpServletResponse response
-    ) {
+    public ModelAndView sendConfirmInfo(HttpServletRequest request) {
         String username = SessionUtils.getNotConfirmedUsername(request.getSession());
         if (username == null) {
             return new ModelAndView("redirect:/");
@@ -26,5 +23,13 @@ public class RegistrationController {
         ModelAndView model = new ModelAndView("auth/send-confirm-info");
         model.addObject("username", username);
         return model;
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public ModelAndView registration(HttpServletRequest request, HttpServletResponse response) {
+        if (SessionUtils.getCurrentUserDetails(request.getSession()) != null) {
+            return new ModelAndView("redirect:/");
+        }
+        return new ModelAndView("auth/registration");
     }
 }

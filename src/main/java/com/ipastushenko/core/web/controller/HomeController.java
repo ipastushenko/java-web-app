@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * home controller
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView home(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView home(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("index");
         UserDetailsImpl userDetails = SessionUtils.getCurrentUserDetails(request.getSession());
         model.addObject("username", userDetails.getUsername());
