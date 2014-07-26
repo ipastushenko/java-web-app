@@ -5,5 +5,6 @@ package com.ipastushenko.core.utils;
  */
 public enum SessionAttributeCode {
     BAD_CREDENTIALS,
-    NOT_CONFIRMED_USERNAME
+    NOT_CONFIRMED_USERNAME,
+    CURRENT_USER
 }

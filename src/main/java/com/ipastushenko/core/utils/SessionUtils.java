@@ -1,5 +1,7 @@
 package com.ipastushenko.core.utils;
 
+import com.ipastushenko.core.model.UserDetailsImpl;
+
 import javax.servlet.http.HttpSession;
 
 /**
@@ -23,12 +25,23 @@ public class SessionUtils {
         return false;
     }
 
-    public static String findNotConfirmedUsername(HttpSession session) {
+    public static String getNotConfirmedUsername(HttpSession session) {
         Object obj = session.getAttribute(SessionAttributeCode.NOT_CONFIRMED_USERNAME.name());
         if (obj != null) {
             String username = (String) obj;
             session.removeAttribute(SessionAttributeCode.NOT_CONFIRMED_USERNAME.name());
             return username;
+        }
+
+        return null;
+    }
+
+    public static UserDetailsImpl getCurrentUserDetails(HttpSession session) {
+        Object obj = session.getAttribute(SessionAttributeCode.CURRENT_USER.name());
+        if (obj != null) {
+            if (obj instanceof UserDetailsImpl) {
+                return (UserDetailsImpl)obj;
+            }
         }
 
         return null;

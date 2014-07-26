@@ -19,8 +19,11 @@ public class RegistrationController {
             HttpServletRequest request,
             HttpServletResponse response
     ) {
+        String username = SessionUtils.getNotConfirmedUsername(request.getSession());
+        if (username == null) {
+            return new ModelAndView("redirect:/");
+        }
         ModelAndView model = new ModelAndView("auth/send-confirm-info");
-        String username = SessionUtils.findNotConfirmedUsername(request.getSession());
         model.addObject("username", username);
         return model;
     }

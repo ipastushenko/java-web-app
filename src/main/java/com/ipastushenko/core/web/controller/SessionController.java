@@ -22,7 +22,7 @@ public class SessionController {
             HttpServletRequest request,
             HttpServletResponse response
     ) {
-        if (request.getSession().getAttribute("currentUser") != null) {
+        if (SessionUtils.getCurrentUserDetails(request.getSession()) != null) {
             return new ModelAndView("redirect:/");
         }
 

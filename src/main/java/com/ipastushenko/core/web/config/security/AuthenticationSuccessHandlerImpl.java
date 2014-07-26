@@ -3,6 +3,7 @@ package com.ipastushenko.core.web.config.security;
 import com.ipastushenko.core.model.UserDetailsImpl;
 import com.ipastushenko.core.service.UserDetailsServiceImpl;
 import com.ipastushenko.core.service.exception.ServiceException;
+import com.ipastushenko.core.utils.SessionAttributeCode;
 import org.apache.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -36,7 +37,7 @@ public class AuthenticationSuccessHandlerImpl extends SimpleUrlAuthenticationSuc
             } catch (ServiceException e) {
                 log.error("IP and time of last login can't update");
             }
-            request.getSession().setAttribute("currentUser", userDetails);
+            request.getSession().setAttribute(SessionAttributeCode.CURRENT_USER.name(), userDetails);
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }
