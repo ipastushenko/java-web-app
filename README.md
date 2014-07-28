@@ -41,20 +41,23 @@ Install next development tools:
 1. Open or create `~/.m2/settings.xml`
 2. Add next xml:
 ```xml
-<servers>
-  <!-- flyway settings -->
-  <server>
-    <id>pg-java-web-app</id>
-    <username>database_username</username>
-    <password>database_password</password>
-  </server>
-  <!-- tomcat settings -->
-  <server>
-    <id>tomcat7_manager</id>
-    <username>tomcat_admin_username</username>
-    <password>tomcat_admin_password</password>
-  </server>
-</servers>
+<settings>
+...
+  <servers>
+    <!-- flyway settings -->
+    <server>
+      <id>pg-java-web-app</id>
+      <username>database_username</username>
+      <password>database_password</password>
+    </server>
+    <!-- tomcat settings -->
+    <server>
+      <id>tomcat7_manager</id>
+      <username>tomcat_manager_username</username>
+      <password>tomcat_manager_password</password>
+    </server>
+  </servers>
+</settings>
 ```
 
 ### Deploy development version
@@ -62,3 +65,4 @@ Install next development tools:
 1. Run `mvn -Dflyway.url=<database-url> flyway:migrate`
 2. Run `mvn package`
 3. Run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy`
+4. If you use remote tomcat server: `mvn -Dmaven.tomcat.url=<tomcat-url> tomcat7:redeploy`
