@@ -1,0 +1,18 @@
+extends ../layout
+
+block head
+  title Confirm information
+
+block content
+  p.text-center
+    a(href="#{urlBuilder.build('/')}") Go to home page
+  p.text-danger.text-center
+    | Your email is not confirmed. Please check your email or send confirm information.
+  form.col-md-4.col-md-offset-4(role="form", name="sendConfirmInfoForm", action="#{urlBuilder.build('/send-confirm-info')}", method="POST")
+    p.bg-danger #{sendConfirmErrorMessage}
+    .form-group
+      label(for="username") Email
+      input#username.form-control(type="text", name="username", placeholder="Enter your email", value="#{username}")
+    .form-group
+      input.btn.btn-primary.btn-block(type="submit", name="submit", value="Send")
+    input(type="hidden", name="#{_csrf.parameterName}", value="#{_csrf.token}")

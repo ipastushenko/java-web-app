@@ -11,14 +11,20 @@
         <beans:property name="errorPage" value="403" />
     </beans:bean>
     <!-- authentication success security -->
-    <beans:bean id="authenticationSuccessHandler" class="com.ipastushenko.core.web.config.security.AuthenticationSuccessHandlerImpl">
+    <beans:bean
+            id="authenticationSuccessHandler"
+            class="com.ipastushenko.core.web.config.security.AuthenticationSuccessHandlerImpl">
         <beans:property name="userDetailsService" ref="userDetailsServiceImpl" />
     </beans:bean>
 
-    <beans:bean id="authenticationFailureHandler" class="com.ipastushenko.core.web.config.security.AuthenticationFailureHandlerImpl">
+    <beans:bean
+            id="authenticationFailureHandler"
+            class="com.ipastushenko.core.web.config.security.AuthenticationFailureHandlerImpl">
         <beans:property name="exceptionMappings">
             <beans:props>
-                <beans:prop key="com.ipastushenko.core.web.config.security.exception.NotConfirmedException">/send-confirm-info</beans:prop>
+                <beans:prop key="com.ipastushenko.core.web.config.security.exception.NotConfirmedException">
+                    /send-confirm-info
+                </beans:prop>
             </beans:props>
         </beans:property>
         <beans:property name="defaultFailureUrl" value="/login" />
@@ -26,7 +32,9 @@
 
     <beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
-    <beans:bean id="authenticationProvider" class="com.ipastushenko.core.web.config.security.CustomDaoAuthenticationProvider">
+    <beans:bean
+            id="authenticationProvider"
+            class="com.ipastushenko.core.web.config.security.CustomDaoAuthenticationProvider">
         <beans:property name="userDetailsService" ref="userDetailsServiceImpl" />
         <beans:property name="passwordEncoder" ref="bcryptEncoder" />
     </beans:bean>
