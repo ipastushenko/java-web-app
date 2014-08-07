@@ -5,7 +5,7 @@
 * Spring Framework
 * Spring MVC
 * Spring Security
-* JSP
+* Jade Templates
 * MyBatis
 * PostgreSQL
 * Flyway
