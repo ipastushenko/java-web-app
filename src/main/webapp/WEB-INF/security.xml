@@ -44,7 +44,6 @@
     <http>
         <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/send-confirm-info*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/confirm-info.json*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/registration*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/**" access="ROLE_USER" />
         <form-login
