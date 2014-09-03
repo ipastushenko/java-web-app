@@ -53,11 +53,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public void update(UserDetailsImpl userDetails) throws ServiceException {
         if (userDetails == null) {
             log.error("Service exception: userDetails is null");
-            throw new ServiceException();
+            throw new ServiceException("userDetails is null");
         }
         if (userDetails.getId() == null) {
             log.error("Service exception: userDetails.id is null");
-            throw new ServiceException();
+            throw new ServiceException("userDetails.id is null");
         }
         TransactionStatus status = txManager.getTransaction(txDefinition);
         try {
@@ -68,7 +68,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 txManager.rollback(status);
             }
             log.error("Service exception: ", e);
-            throw new ServiceException();
+            throw new ServiceException("Database access error");
         }
     }
 

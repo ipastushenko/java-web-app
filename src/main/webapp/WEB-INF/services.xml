@@ -7,4 +7,8 @@
         <property name="userDetailsDAO" ref="userDetailsDAO" />
         <property name="txManager" ref="txManager" />
     </bean>
+
+    <bean id="emailService" class="com.ipastushenko.core.service.EmailService">
+        <property name="mailSender" ref="mailSender" />
+    </bean>
 </beans>

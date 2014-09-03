@@ -1,0 +1,10 @@
+extends ../layout
+
+block head
+  title Confirm information
+
+block content
+  p.text-center
+    a(href="#{urlHelper.build('/')}") Go to home page
+  p.text-danger.text-center
+    | Confirm information sent for you. Please check your email.
