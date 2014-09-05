@@ -31,6 +31,9 @@ Install next development tools:
 1. Open or create file `$CATALINA_HOME/bin/setenv.sh`
 2. Add `JAVA_OPTS="$JAVA_OPTS -Djava_web_app.config.path=<config_path>"` in setenv.sh
 
+### Email settings
+1. Change `<config_path>/mail.properties`
+
 ### PostgreSQL settings
 
 1. Create user and database for our project
